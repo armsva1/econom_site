@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL / ECONOMICS</title>
+    <style>
+        /* Шрифт с эффектом кода */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        :root {
+            --bg: #000000;
+            --neon: #00FF41; /* Цвет прибыли и терминала */
+            --text: #ffffff;
+            --border-heavy: 3px solid var(--neon);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: crosshair; /* Курсор как в прицеле */
+        }
+
+        body {
+            font-family: 'Space+Grotesk', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.2;
+            overflow-x: hidden;
+        }
+
+        /* Эффект шума на фоне */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .container { padding: 20px; }
+
+        /* Шапка терминала */
+        header {
+            border: var(--border-heavy);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            background: var(--bg);
+            margin-bottom: 20px;
+        }
+
+        .status-blink {
+            width: 10px;
+            height: 10px;
+            background: var(--neon);
+            display: inline-block;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Hero секция */
+        .hero {
+            border: var(--border-heavy);
+            padding: 60px 20px;
+            margin-bottom: 20px;
+            background: var(--neon);
+            color: #000;
+        }
+
+        h1 {
+            font-size: clamp(40px, 10vw, 120px);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 0.9;
+            word-break: break-all;
+        }
+
+        .ticker {
+            background: var(--neon);
+            color: #000;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: var(--border-heavy);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+        }
+
+        .ticker-wrap {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Контентные блоки */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border: var(--border-heavy);
+            padding: 30px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            background: var(--neon);
+            color: #000;
+        }
+
+        .card h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+        }
+
+        /* Кнопка */
+        .cta-btn {
+            display: block;
+            width: 100%;
+            padding: 40px;
+            background: transparent;
+            border: var(--border-heavy);
+            color: var(--neon);
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .cta-btn:hover {
+            background: var(--text);
+            color: #000;
+            border-color: var(--text);
+        }
+
+        /* Числа */
+        .big-num {
+            font-size: 80px;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            border: var(--border-heavy);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 50px; }
+            .card { padding: 15px; }
+        }
+        html{scroll-behavior: smooth;}
+    </style>
+</head>
+<body>
+
+    <div class="ticker">
+        <div class="ticker-wrap">
+            BTC +4.2% // INFLATION RISK: HIGH // GDP GROWTH: STABLE // MARKETS: OPEN // ANALYZE EVERYTHING // 
+            BTC +4.2% // INFLATION RISK: HIGH // GDP GROWTH: STABLE // MARKETS: OPEN // ANALYZE EVERYTHING // 
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div>[SYS_VER_4.0]</div>
+            <div><span class="status-blink"></span> SYSTEM_ACTIVE</div>
+            <div>LOG_IN: 2026.05.14</div>
+        </header>
+
+        <section class="hero">
+            <h1>HARD DATA.<br>NO BULLSHIT.</h1>
+            <p style="font-weight: bold; margin-top: 20px;">ЭКОНОМИЧЕСКАЯ АГРЕССИЯ ПРОТИВ ХАОСА. Я ЗАСТАВЛЯЮ ВАШИ ЦИФРЫ РАБОТАТЬ.</p>
+        </section>
+
+        <div class="grid">
+            <div class="card">
+                <span class="big-num">01</span>
+                <h2>ATTACK</h2>
+                <p>Агрессивный поиск утечек капитала. Я найду, где ваш бизнес теряет деньги быстрее, чем вы успеваете их считать. Никакой жалости к неэффективности.</p>
+            </div>
+            <div class="card">
+                <span class="big-num">02</span>
+                <h2>DEFEND</h2>
+                <p>Хеджирование рисков в условиях турбулентности. Создаю броню для ваших активов, которую не пробьет ни один кризис или инфляционный скачок.</p>
+            </div>
+            <div class="card">
+                <span class="big-num">03</span>
+                <h2>SCALE</h2>
+                <p>Масштабирование через математику. Строю финансовые модели, которые выдерживают десятикратный рост нагрузки. Только расчет, только хардкор.</p>
+            </div>
+        </div>
+
+        <section style="margin-top: 20px;" class="card">
+            <h2>STATISTICS_TERMINAL</h2>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                <div>
+                    <span class="big-num">82%</span>
+                    <p>WIN RATE В ПРОГНОЗАХ</p>
+                </div>
+                <div>
+                    <span class="big-num">1.2B</span>
+                    <p>СУММАРНЫЙ КАПИТАЛ ПОД КОНТРОЛЕМ</p>
+                </div>
+                <div>
+                    <span class="big-num">0.0</span>
+                    <p>МЕСТА ДЛЯ ОШИБОК</p>
+                </div>
+            </div>
+        </section>
+
+        <a href="#" class="cta-btn">ИНИЦИИРОВАТЬ КОНТАКТ</a>
+
+        <footer>
+            <p>> ACCESS GRANTED. ALL DATA ENCRYPTED. NO REFUNDS ON ADVICE. BE SMART OR BE BROKE.</p>
+            <p style="margin-top: 10px;"> 2026 CYBER_ECONOMIST_OFFLINE</p>
+        </footer>
+    </div>
+
+</body>
+</html>
